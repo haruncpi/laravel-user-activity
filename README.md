@@ -6,7 +6,7 @@
     <a href="https://facebook.com/laravelarticle"><img src="https://badgen.net/badge/facebook/laravelarticle/3b5998"/></a>
 </p>
 
-<p>Easily monitor your user activity with beautiful responsive & easy user-interface!</p>
+<p align="center">Easily monitor your user activity with beautiful responsive & easy user-interface!</p>
 
 ![Image description](previews/preview.png)
 
