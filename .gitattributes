@@ -1,0 +1,4 @@
+* linguist-vendored
+*.php linguist-vendored=true
+*.html linguist-vendored=false
+*.css linguist-vendored=false
