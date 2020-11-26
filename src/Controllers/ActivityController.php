@@ -97,7 +97,19 @@ class ActivityController extends Controller
             }
         }
 
-        $all = array_map('reset', DB::select('SHOW TABLES'));
+        $connection = config('database.default');
+        $driver = DB::connection($connection)->getDriverName();
+        switch ($driver) {
+            case 'pgsql':
+                $sql = sprintf(
+                    "SELECT table_name FROM information_schema.tables where table_schema = '%s' ORDER BY table_schema,table_name;",
+                    DB::connection($connection)->getConfig('schema') ?: 'public'
+                );
+                $all = array_map('reset', DB::select($sql));
+                break;
+            default:
+                $all = array_map('reset', DB::select('SHOW TABLES'));
+        }
         $exclude = ['failed_jobs', 'password_resets', 'migrations', 'logs'];
         $tables = array_diff($all, $exclude);
 
