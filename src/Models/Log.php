@@ -1,6 +1,6 @@
 <?php namespace Haruncpi\LaravelUserActivity\Models;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Log extends Model
