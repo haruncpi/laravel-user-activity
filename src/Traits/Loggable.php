@@ -26,10 +26,8 @@ trait Loggable
         ]);
     }
 
-    public static function boot()
+    public static function bootLoggable()
     {
-        parent::boot();
-
         if (config('user-activity.log_events.on_edit', false)) {
             self::updated(function ($model) {
                 self::logToDb($model, 'edit');
