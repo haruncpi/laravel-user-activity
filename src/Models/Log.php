@@ -1,6 +1,5 @@
 <?php namespace Haruncpi\LaravelUserActivity\Models;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Log extends Model
@@ -21,6 +20,10 @@ class Log extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        if(class_exists('\App\Models\User')) {
+            return $this->belongsTo(\App\Models\User::class);
+        }
+
+        return $this->belongsTo(\App\User::class);
     }
 }
