@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 class ActivityController extends Controller
 {
+    private $userInstance = "\App\User";
+
+    public function __construct() {
+        $userInstance = config('user-activity.model.user');
+        if(!empty($userInstance)) $this->userInstance = $userInstance;
+    }
 
     private function handleData(Request $request)
     {
@@ -71,7 +77,7 @@ class ActivityController extends Controller
         ]);
 
         $user = request('user');
-        return User::select('id', 'name', 'email')
+        return $this->userInstance::select('id', 'name', 'email')
             ->where('name', 'like', '%' . $user . '%')
             ->orWhere('id', $user)
             ->limit(10)->get();

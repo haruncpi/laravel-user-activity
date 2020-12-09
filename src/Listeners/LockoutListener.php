@@ -8,17 +8,24 @@ use Illuminate\Support\Facades\DB;
 
 class LockoutListener
 {
+
+    private $userInstance = "\App\User";
+
     public function __construct(Request $request)
     {
         $this->request = $request;
+
+        $userInstance = config('user-activity.model.user');
+        if(!empty($userInstance)) $this->userInstance = $userInstance;
     }
+
 
     public function handle($event)
     {
         if (!config('user-activity.log_events.on_lockout', false)) return;
 
         if (!$event->request->has('email')) return;
-        $user = User::where('email', $event->request->input('email'))->first();
+        $user = $this->userInstance::where('email', $event->request->input('email'))->first();
         if (!$user) return;
 
 
