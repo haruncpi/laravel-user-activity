@@ -547,7 +547,7 @@
                 <div class="close" ng-click="popup=false">x</div>
             </div>
             <div class="popup_content">
-                <table style="width: 96%;">
+                <table style="width: 96%; table-layout: fixed;">
                     <thead>
                     <tr>
                         <td colspan="2">INFO</td>
@@ -581,7 +581,7 @@
                 <br>
 
                 <div class="responsive_table">
-                    <table style="width: 96%;">
+                    <table style="width: 96%; table-layout: fixed;">
                         <thead>
                         <tr>
                             <td>@{{ ['edit','delete'].includes(selected.log_type)?'FIELD':'' }}</td>
@@ -605,7 +605,7 @@
                 <br>
                 <div class="responsive_table" ng-if="selected.log_type==='edit' && editHistory.length > 0">
                     <p style="color: #666;;">Another <strong>@{{ editHistory.length }}</strong> edit history found!</p>
-                    <table style="width: 96%;">
+                    <table style="width: 96%; table-layout: fixed;">
                         <thead>
                         <tr>
                             <td>Time</td>
