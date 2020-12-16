@@ -10,12 +10,13 @@ trait Loggable
 
     static function logToDb($model, $logType)
     {
-        if (!auth()->check()) return;
+       $guarded =  config('user-activity.admin_guard', 'user');
+        if (!auth()->guard($guarded)->check()) return;
         $originalData = json_encode($model->getOriginal());
 
         $tableName = $model->getTable();
         $dateTime = date('Y-m-d H:i:s');
-        $userId = auth()->user()->id;
+        $userId = auth()->guard($guarded)->user()->id;
 
         DB::table(self::$logTable)->insert([
             'user_id'    => $userId,

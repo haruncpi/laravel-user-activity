@@ -1,15 +1,19 @@
 <?php namespace Haruncpi\LaravelUserActivity\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Facades\Config;
 class Log extends Model
 {
     public $timestamps = false;
     public $dates = ['log_date'];
     protected $appends = ['dateHumanize','json_data'];
+    private $model;
+    protected $config;
+
 
     public function getDateHumanizeAttribute()
     {
+        $this->model = config('user-activity.model');
         return $this->log_date->diffForHumans();
     }
 
@@ -20,10 +24,7 @@ class Log extends Model
 
     public function user()
     {
-        if(class_exists('\App\Models\User')) {
-            return $this->belongsTo(\App\Models\User::class);
-        }
-
-        return $this->belongsTo(\App\User::class);
+        $model = config('user-activity.model');
+        return $this->belongsTo($model);
     }
 }

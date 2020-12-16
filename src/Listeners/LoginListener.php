@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class LoginListener
 {
     public function __construct(Request $request)
-    {
+    {        
         $this->request = $request;
     }
 

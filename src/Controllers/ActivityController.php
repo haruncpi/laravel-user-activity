@@ -3,7 +3,6 @@
 namespace Haruncpi\LaravelUserActivity\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\User;
 use Haruncpi\LaravelUserActivity\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -66,12 +65,14 @@ class ActivityController extends Controller
 
     private function handleUserAutocomplete(Request $request)
     {
+        $model = config('user-activity.model');
+
         $this->validate($request, [
             'user' => 'required|string|max:50'
         ]);
 
         $user = request('user');
-        return User::select('id', 'name', 'email')
+        return $model::select('id', 'name', 'email')
             ->where('name', 'like', '%' . $user . '%')
             ->orWhere('id', $user)
             ->limit(10)->get();

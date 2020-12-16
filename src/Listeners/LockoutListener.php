@@ -15,10 +15,12 @@ class LockoutListener
 
     public function handle($event)
     {
+        $model = config('user-activity.model');
+
         if (!config('user-activity.log_events.on_lockout', false)) return;
 
         if (!$event->request->has('email')) return;
-        $user = User::where('email', $event->request->input('email'))->first();
+        $user = $model::where('email', $event->request->input('email'))->first();
         if (!$user) return;
 
 
