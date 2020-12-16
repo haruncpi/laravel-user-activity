@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'middleware'       => ['web', 'admin'],
+    'middleware'       => ['web', 'auth'],
     'route_path'       => 'admin/user-activity',
-    'admin_panel_path' => 'en/admin',
+    'admin_panel_path' => 'admin/dashboard',
     'delete_limit'     => 7,
 
     /*
