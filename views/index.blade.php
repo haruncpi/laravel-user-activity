@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>User Activity</title>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" crossorigin="anonymous">
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script>
         angular.module('__paging', []).directive('paging', function () {
@@ -405,238 +406,838 @@
     </script>
 
     <!-- inject:style:css -->
-    <style>body{margin:0;padding:0;background:#f4f4f4;font-family:sans-serif}.btn{text-decoration:none;background:white;padding:5px 12px;border-radius:25px}header{min-height:30px;display:flex;justify-content:space-between;align-items:center;padding:15px;background:#2e2e2f;position:fixed;left:0;right:0;top:0;box-shadow:0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24)}header a{color:#333}header .btn_clear_all{background:#de4f4f;color:#fff}header .name{font-size:25px;font-weight:500;color:white;position:relative}header .name span:nth-child(1){position:absolute;font-size:13px;left:28px;top:-3px}header .name span:nth-child(3){position:absolute;left:28px;top:7px;font-size:22px}.letter_a{background:#FFC107;border-radius:4px;color:#333;padding:0px 3px;margin-right:3px;font-weight:600}.content{margin-top:65px;padding:15px;background:#fff;min-height:100px}.content select,.content input,.content button{box-sizing:border-box;min-height:28px;max-height:28px;min-width:120px;border:1px solid #ddd;border-radius:4px;padding:2px 5px}.content input{padding:2px 7px}.top_content{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.top_content .top_content_left{display:flex}.top_content .top_content_left .log_filter{display:flex;align-items:center;margin-left:15px}.top_content .top_content_left .log_filter .log_type_item{margin-right:4px;background:#eae9e9;max-height:20px;font-size:11px;box-sizing:border-box;padding:4px 6px;cursor:pointer}.top_content .top_content_left .log_filter .log_type_item.active{background:#2f2e2f;color:white!important}.top_content .top_content_left .log_filter .log_type_item.clear{background:#607D8B;color:white}.top_content .top_content_right{display:flex}.top_content .top_content_right .user_list_box{position:relative}.top_content .top_content_right .user_list_box #user_list{box-shadow:0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24);position:absolute;z-index:10;max-height:200px;border:1px solid #f4f4f4;max-width:100%;min-width:100%;overflow:hidden;box-sizing:border-box;background:white;top:45px;overflow-y:scroll}.top_content .top_content_right .user_list_box #user_list::-webkit-scrollbar{width:3px}.top_content .top_content_right .user_list_box #user_list .single_user{margin-bottom:8px;cursor:pointer;padding:7px}.top_content .top_content_right .user_list_box #user_list .single_user:hover{background:#f4f4f4}.top_content .top_content_right .user_list_box #user_list .single_user p{margin:0}.top_content .top_content_right .user_list_box #user_list .single_user p span{font-size:12px}.top_content .top_content_right .btn_filter{min-width:70px;background:#FFC107;color:#2b2b28;cursor:pointer;border:1px solid #af8300}.top_content .top_content_right .btn_filter_active{background:#F44336;color:#fff;border:1px solid #a51208}.top_content .top_content_right .btn_reset{min-width:70px;cursor:pointer}.top_content .top_content_right .filter_item{margin-right:5px;display:flex;flex-direction:column}.top_content .top_content_right .filter_item label{font-size:13px;margin-bottom:3px;color:#555}.action_column button{min-width:70px;cursor:pointer}.action_column .btn_delete{background:#ef5b50;color:white}.log_data_wrapper{min-height:calc(100vh - 205px);overflow-y:auto}.log_data_wrapper::-webkit-scrollbar{width:2px}footer{background:#f4f4f4;display:flex;justify-content:space-between;box-sizing:border-box;padding:10px}footer .footer_right .btn{background:#ef5b50;color:white;cursor:pointer}table{border:1px solid #ccc;border-collapse:collapse;margin:0;padding:0;width:100%}table tr{border:1px solid #e8e8e8;padding:5px}table tr:hover{background:#f4f4f4}thead tr td{background:#717171;color:#fff}table th,table td{padding:6px 6px;font-size:15px;color:#666}table th{font-size:14px;letter-spacing:1px;text-transform:uppercase}.from_table{margin-top:4px;display:inline-block;margin-left:3px;color:#777}.field_cell{background:#f4f4f4;width:150px}.changed{background:antiquewhite}.edit_badge{width:33px;display:inline-block;text-align:center}@media screen and (max-width:700px){.top_content{flex-direction:column}.top_content .top_content_left{flex-direction:column}.top_content .log_filter{flex-wrap:wrap}.top_content .log_filter .log_type_item{margin-bottom:3px}}.popup_wrapper{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(0,0,0,0.5)}.popup{width:50%;background:#fff;position:absolute;margin:0 auto;left:0;right:0;top:20%;z-index:200;box-shadow:1px 0 20px rgba(0,0,0,0.19),0 6px 6px rgba(0,0,0,0.23);max-height:calc(100vh - 35%);overflow-x:hidden;overflow-y:scroll}.popup::-webkit-scrollbar{width:3px}.popup .header{display:flex;background:whitesmoke;justify-content:space-between;height:35px;align-items:center;border-bottom:1px solid #ddd}.popup .header .title{margin-left:15px;font-weight:700}.popup .header .close{width:30px;background:#333;color:#fff;text-align:center;line-height:35px;border-bottom:1px solid #333;cursor:pointer}.popup .popup_content{min-height:100px;width:100%;padding:15px}.popup .popup_content .form-group{margin-bottom:10px}.popup .popup_content label{display:block;color:#777}.popup .popup_content input{border:0;padding:5px;border:1px solid #ddd;width:100%;margin-top:5px}.popup .popup_content input:focus{outline:none;border-bottom:1px solid #666}.popup .footer{padding:0 15px;display:flex;background:whitesmoke;justify-content:space-between;height:40px;align-items:center;border-top:1px solid #ddd}.pagination_wrapper{display:flex;justify-content:flex-end}.pagination_wrapper ul.pagination{display:flex;padding:0;margin-right:5px}.pagination_wrapper ul.pagination li{list-style-type:none}.pagination_wrapper ul.pagination li a{padding:5px 8px;background:#f4f4f4;border:1px solid #ddd;display:inline-block;text-decoration:none;color:#000;margin-right:3px}.pagination_wrapper ul.pagination li a:hover{background:#222;color:#fff}.pagination_wrapper ul.pagination li .active{background:#222;color:#fff}.pagination_wrapper ul.pagination li.active a{background:#222;color:#fff}@media screen and (max-width:600px){.top_content{flex-direction:column-reverse}.top_content_right{flex-wrap:wrap}.top_content_right .filter_item{min-width:48%;margin-bottom:8px}.top_content_right .full_width_param{min-width:98%;max-width:98%}.pagination_wrapper{display:flex;justify-content:flex-start;overflow-x:scroll}.btn{font-size:13px}.dt_box,.selected_date{text-align:center}.responsive_table{max-width:100%;overflow-x:auto}.popup{width:96%!important}.popup .popup_content table{width:93% !important}.popup .popup_content table td{width:96%}table{border:0}table thead{display:none}table tr{border-bottom:2px solid #ddd;display:block;margin-bottom:10px}table td{border-bottom:1px dotted #ccc;display:block;font-size:15px}table td:last-child{border-bottom:0}table td:before{content:attr(data-label);float:left;font-weight:bold;text-transform:uppercase}}.badge{padding:3px 8px;-webkit-border-radius:25px;-moz-border-radius:25px;border-radius:25px;font-size:12px}.badge.info{background:#6bb5b5;color:#fff}.badge.warning{background:#f7be57}.badge.critical{background:#de4f4f;color:#fff}.badge.emergency{background:#ff6060;color:white}.badge.notice{background:bisque}.badge.debug{background:#8e8c8c;color:white}.badge.alert{background:#4ba4ea;color:white}.badge.error{background:#c36a6a;color:white}.text_center{text-align:center}.text_right{text-align:right}.text_left{text-align:left}.text_light{color:#888}</style>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+            font-family: sans-serif
+        }
+
+        .btn {
+            text-decoration: none;
+            background: white;
+            padding: 5px 12px;
+            border-radius: 25px
+        }
+
+        header {
+            min-height: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #2e2e2f;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)
+        }
+
+        header a {
+            color: #333
+        }
+
+        header .btn_clear_all {
+            background: #de4f4f;
+            color: #fff
+        }
+
+        header .name {
+            font-size: 25px;
+            font-weight: 500;
+            color: white;
+            position: relative
+        }
+
+        header .name span:nth-child(1) {
+            position: absolute;
+            font-size: 13px;
+            left: 28px;
+            top: -3px
+        }
+
+        header .name span:nth-child(3) {
+            position: absolute;
+            left: 28px;
+            top: 7px;
+            font-size: 22px
+        }
+
+        .letter_a {
+            background: #FFC107;
+            border-radius: 4px;
+            color: #333;
+            padding: 0px 3px;
+            margin-right: 3px;
+            font-weight: 600
+        }
+
+        .content {
+            margin-top: 65px;
+            padding: 15px;
+            background: #fff;
+            min-height: 100px
+        }
+
+        .content select,
+        .content input,
+        .content button {
+            box-sizing: border-box;
+            min-height: 28px;
+            max-height: 28px;
+            min-width: 120px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 2px 5px
+        }
+
+        .content input {
+            padding: 2px 7px
+        }
+
+        .top_content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px
+        }
+
+        .top_content .top_content_left {
+            display: flex
+        }
+
+        .top_content .top_content_left .log_filter {
+            display: flex;
+            align-items: center;
+            margin-left: 15px
+        }
+
+        .top_content .top_content_left .log_filter .log_type_item {
+            margin-right: 4px;
+            background: #eae9e9;
+            max-height: 20px;
+            font-size: 11px;
+            box-sizing: border-box;
+            padding: 4px 6px;
+            cursor: pointer
+        }
+
+        .top_content .top_content_left .log_filter .log_type_item.active {
+            background: #2f2e2f;
+            color: white !important
+        }
+
+        .top_content .top_content_left .log_filter .log_type_item.clear {
+            background: #607D8B;
+            color: white
+        }
+
+        .top_content .top_content_right {
+            display: flex
+        }
+
+        .top_content .top_content_right .user_list_box {
+            position: relative
+        }
+
+        .top_content .top_content_right .user_list_box #user_list {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            position: absolute;
+            z-index: 10;
+            max-height: 200px;
+            border: 1px solid #f4f4f4;
+            max-width: 100%;
+            min-width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+            background: white;
+            top: 45px;
+            overflow-y: scroll
+        }
+
+        .top_content .top_content_right .user_list_box #user_list::-webkit-scrollbar {
+            width: 3px
+        }
+
+        .top_content .top_content_right .user_list_box #user_list .single_user {
+            margin-bottom: 8px;
+            cursor: pointer;
+            padding: 7px
+        }
+
+        .top_content .top_content_right .user_list_box #user_list .single_user:hover {
+            background: #f4f4f4
+        }
+
+        .top_content .top_content_right .user_list_box #user_list .single_user p {
+            margin: 0
+        }
+
+        .top_content .top_content_right .user_list_box #user_list .single_user p span {
+            font-size: 12px
+        }
+
+        .top_content .top_content_right .btn_filter {
+            min-width: 70px;
+            background: #FFC107;
+            color: #2b2b28;
+            cursor: pointer;
+            border: 1px solid #af8300
+        }
+
+        .top_content .top_content_right .btn_filter_active {
+            background: #F44336;
+            color: #fff;
+            border: 1px solid #a51208
+        }
+
+        .top_content .top_content_right .btn_reset {
+            min-width: 70px;
+            cursor: pointer
+        }
+
+        .top_content .top_content_right .filter_item {
+            margin-right: 5px;
+            display: flex;
+            flex-direction: column
+        }
+
+        .top_content .top_content_right .filter_item label {
+            font-size: 13px;
+            margin-bottom: 3px;
+            color: #555
+        }
+
+        .action_column button {
+            min-width: 70px;
+            cursor: pointer
+        }
+
+        .action_column .btn_delete {
+            background: #ef5b50;
+            color: white
+        }
+
+        .log_data_wrapper {
+            min-height: calc(100vh - 205px);
+            overflow-y: auto
+        }
+
+        .log_data_wrapper::-webkit-scrollbar {
+            width: 2px
+        }
+
+        footer {
+            background: #f4f4f4;
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: 10px
+        }
+
+        footer .footer_right .btn {
+            background: #ef5b50;
+            color: white;
+            cursor: pointer
+        }
+
+        table {
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+            margin: 0;
+            padding: 0;
+            width: 100%
+        }
+
+        table tr {
+            border: 1px solid #e8e8e8;
+            padding: 5px
+        }
+
+        table tr:hover {
+            background: #f4f4f4
+        }
+
+        thead tr td {
+            background: #717171;
+            color: #fff
+        }
+
+        table th,
+        table td {
+            padding: 6px 6px;
+            font-size: 15px;
+            color: #666
+        }
+
+        table th {
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase
+        }
+
+        .from_table {
+            margin-top: 4px;
+            display: inline-block;
+            margin-left: 3px;
+            color: #777
+        }
+
+        .field_cell {
+            background: #f4f4f4;
+            width: 150px
+        }
+
+        .changed {
+            background: antiquewhite
+        }
+
+        .edit_badge {
+            width: 33px;
+            display: inline-block;
+            text-align: center
+        }
+
+        .create_badge {
+            width: 33px;
+            display: inline-block;
+            text-align: center
+        }
+
+        @media screen and (max-width:700px) {
+            .top_content {
+                flex-direction: column
+            }
+
+            .top_content .top_content_left {
+                flex-direction: column
+            }
+
+            .top_content .log_filter {
+                flex-wrap: wrap
+            }
+
+            .top_content .log_filter .log_type_item {
+                margin-bottom: 3px
+            }
+        }
+
+        .popup_wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5)
+        }
+
+        .popup {
+            width: 50%;
+            background: #fff;
+            position: absolute;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            top: 20%;
+            z-index: 200;
+            box-shadow: 1px 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            max-height: calc(100vh - 35%);
+            overflow-x: hidden;
+            overflow-y: scroll
+        }
+
+        .popup::-webkit-scrollbar {
+            width: 3px
+        }
+
+        .popup .header {
+            display: flex;
+            background: whitesmoke;
+            justify-content: space-between;
+            height: 35px;
+            align-items: center;
+            border-bottom: 1px solid #ddd
+        }
+
+        .popup .header .title {
+            margin-left: 15px;
+            font-weight: 700
+        }
+
+        .popup .header .close {
+            width: 30px;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 35px;
+            border-bottom: 1px solid #333;
+            cursor: pointer
+        }
+
+        .popup .popup_content {
+            min-height: 100px;
+            width: 100%;
+            padding: 15px
+        }
+
+        .popup .popup_content .form-group {
+            margin-bottom: 10px
+        }
+
+        .popup .popup_content label {
+            display: block;
+            color: #777
+        }
+
+        .popup .popup_content input {
+            border: 0;
+            padding: 5px;
+            border: 1px solid #ddd;
+            width: 100%;
+            margin-top: 5px
+        }
+
+        .popup .popup_content input:focus {
+            outline: none;
+            border-bottom: 1px solid #666
+        }
+
+        .popup .footer {
+            padding: 0 15px;
+            display: flex;
+            background: whitesmoke;
+            justify-content: space-between;
+            height: 40px;
+            align-items: center;
+            border-top: 1px solid #ddd
+        }
+
+        .pagination_wrapper {
+            display: flex;
+            justify-content: flex-end
+        }
+
+        .pagination_wrapper ul.pagination {
+            display: flex;
+            padding: 0;
+            margin-right: 5px
+        }
+
+        .pagination_wrapper ul.pagination li {
+            list-style-type: none
+        }
+
+        .pagination_wrapper ul.pagination li a {
+            padding: 5px 8px;
+            background: #f4f4f4;
+            border: 1px solid #ddd;
+            display: inline-block;
+            text-decoration: none;
+            color: #000;
+            margin-right: 3px
+        }
+
+        .pagination_wrapper ul.pagination li a:hover {
+            background: #222;
+            color: #fff
+        }
+
+        .pagination_wrapper ul.pagination li .active {
+            background: #222;
+            color: #fff
+        }
+
+        .pagination_wrapper ul.pagination li.active a {
+            background: #222;
+            color: #fff
+        }
+
+        @media screen and (max-width:600px) {
+            .top_content {
+                flex-direction: column-reverse
+            }
+
+            .top_content_right {
+                flex-wrap: wrap
+            }
+
+            .top_content_right .filter_item {
+                min-width: 48%;
+                margin-bottom: 8px
+            }
+
+            .top_content_right .full_width_param {
+                min-width: 98%;
+                max-width: 98%
+            }
+
+            .pagination_wrapper {
+                display: flex;
+                justify-content: flex-start;
+                overflow-x: scroll
+            }
+
+            .btn {
+                font-size: 13px
+            }
+
+            .dt_box,
+            .selected_date {
+                text-align: center
+            }
+
+            .responsive_table {
+                max-width: 100%;
+                overflow-x: auto
+            }
+
+            .popup {
+                width: 96% !important
+            }
+
+            .popup .popup_content table {
+                width: 93% !important
+            }
+
+            .popup .popup_content table td {
+                width: 96%
+            }
+
+            table {
+                border: 0
+            }
+
+            table thead {
+                display: none
+            }
+
+            table tr {
+                border-bottom: 2px solid #ddd;
+                display: block;
+                margin-bottom: 10px
+            }
+
+            table td {
+                border-bottom: 1px dotted #ccc;
+                display: block;
+                font-size: 15px
+            }
+
+            table td:last-child {
+                border-bottom: 0
+            }
+
+            table td:before {
+                content: attr(data-label);
+                float: left;
+                font-weight: bold;
+                text-transform: uppercase
+            }
+        }
+
+        .badge {
+            padding: 3px 8px;
+            -webkit-border-radius: 25px;
+            -moz-border-radius: 25px;
+            border-radius: 25px;
+            font-size: 12px
+        }
+
+        .badge.info {
+            background: #6bb5b5;
+            color: #fff
+        }
+
+        .badge.warning {
+            background: #f7be57
+        }
+
+        .badge.primary {
+            color: #fff;
+            background-color: #007bff;
+        }
+
+        .badge.critical {
+            background: #de4f4f;
+            color: #fff
+        }
+
+        .badge.emergency {
+            background: #ff6060;
+            color: white
+        }
+
+        .badge.notice {
+            background: bisque
+        }
+
+        .badge.debug {
+            background: #8e8c8c;
+            color: white
+        }
+
+        .badge.alert {
+            background: #4ba4ea;
+            color: white
+        }
+
+        .badge.error {
+            background: #c36a6a;
+            color: white
+        }
+
+        .text_center {
+            text-align: center
+        }
+
+        .text_right {
+            text-align: right
+        }
+
+        .text_left {
+            text-align: left
+        }
+
+        .text_light {
+            color: #888
+        }
+    </style>
     <!-- endinject -->
 </head>
+
 <body ng-controller="LogCtrl">
-<header>
-    <div class="name">
-        <span>user</span>
-        <span class="letter_a">A</span> <span>ctivity</span>
-    </div>
-    <div class="actions">
-        <a class="btn" href="{{url(config('user-activity.admin_panel_path'))}}">Goto Admin Panel</a>
-        <a class="btn" href="https://laravelarticle.com/laravel-user-activity" title="Laravel User Activity">Doc</a>
-    </div>
-</header>
-<section class="content">
-    <div class="top_content">
-        <div class="top_content_left">
-            <p class="text_light">Showing @{{response.from}} to @{{response.to}} of @{{response.total}} records</p>
+    <header>
+        <div class="name">
+            <span>user</span>
+            <span class="letter_a">A</span> <span>ctivity</span>
         </div>
+        <div class="actions">
+            <a class="btn" href="{{url(config('user-activity.admin_panel_path'))}}">Goto Admin Panel</a>
+            <a class="btn" href="https://laravelarticle.com/laravel-user-activity" title="Laravel User Activity">Doc</a>
+        </div>
+    </header>
+    <section class="content">
+        <div class="top_content">
+            <div class="top_content_left">
+                <p class="text_light">Showing @{{response.from}} to @{{response.to}} of @{{response.total}} records</p>
+            </div>
 
-        <div class="top_content_right">
-            <div class="filter_item full_width_param user_list_box">
-                <label>USER</label>
-                <input type="text"
-                       ng-model="filter.user_id"
-                       ng-model-options="{debounce:500}"
-                       ng-change="getUsers(filter.user_id)"
-                       placeholder="Type name or id">
+            <div class="top_content_right">
+                <div class="filter_item full_width_param user_list_box">
+                    <label>USER</label>
+                    <input type="text" ng-model="filter.user_id" ng-model-options="{debounce:500}"
+                        ng-change="getUsers(filter.user_id)" placeholder="Type name or id">
 
-                <div id="user_list" ng-show="userList.length && filter.user_id">
-                    <!---->
-                    <div class="single_user" ng-repeat="user in userList" ng-click="onUserSelect(user)">
-                        <p>@{{ user.name }} <br>
-                            <span class="text_light">@{{ user.email }}</span>
-                        </p>
+                    <div id="user_list" ng-show="userList.length && filter.user_id">
+                        <!---->
+                        <div class="single_user" ng-repeat="user in userList" ng-click="onUserSelect(user)">
+                            <p>@{{ user.name }} <br>
+                                <span class="text_light">@{{ user.email }}</span>
+                            </p>
+                        </div>
+                        <!---->
                     </div>
-                    <!---->
+
                 </div>
+                <div class="filter_item">
+                    <label>LOG TYPE</label>
 
-            </div>
-            <div class="filter_item">
-                <label>LOG TYPE</label>
-
-                <select ng-model="filter.log_type">
-                    @foreach(['edit','delete','login','lockout'] as $type)
+                    <select ng-model="filter.log_type">
+                        @foreach(['create', 'edit','delete','login','lockout'] as $type)
                         <option value="{{ $type}}">{{ $type}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="filter_item">
-                <label>TABLE</label>
-                <select ng-model="filter.table">
-                    @foreach($tables as $table)
+                        @endforeach
+                    </select>
+                </div>
+                <div class="filter_item">
+                    <label>TABLE</label>
+                    <select ng-model="filter.table">
+                        @foreach($tables as $table)
                         <option value="{{ $table}}">{{ $table}}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="filter_item">
-                <label>FROM DATE</label>
-                <date-input ng-model="filter.from_date"></date-input>
-            </div>
-            <div class="filter_item">
-                <label>TO DATE</label>
-                <date-input ng-model="filter.to_date"></date-input>
-            </div>
-            <div class="filter_item" style="justify-content: flex-end;">
-                <button class="btn_reset" ng-show="activeFilter" ng-click="resetParam()">RESET</button>
-            </div>
-            <div class="filter_item" style="justify-content: flex-end;">
-                <button class="btn_filter" ng-class="{btn_filter_active : activeFilter == true}"
+                        @endforeach
+                    </select>
+                </div>
+                <div class="filter_item">
+                    <label>FROM DATE</label>
+                    <date-input ng-model="filter.from_date"></date-input>
+                </div>
+                <div class="filter_item">
+                    <label>TO DATE</label>
+                    <date-input ng-model="filter.to_date"></date-input>
+                </div>
+                <div class="filter_item" style="justify-content: flex-end;">
+                    <button class="btn_reset" ng-show="activeFilter" ng-click="resetParam()">RESET</button>
+                </div>
+                <div class="filter_item" style="justify-content: flex-end;">
+                    <button class="btn_filter" ng-class="{btn_filter_active : activeFilter == true}"
                         ng-click="filterData(filter)">FILTER
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="log_data_wrapper">
-        <div class="responsive_table">
-            <table>
-                <thead>
-                <tr>
-                    <td width="30">ID</td>
-                    <td width="260">DATE</td>
-                    <td width="170">LOG TYPE</td>
-                    <td>DONE BY</td>
-                    <td class="text_right" style="padding-right: 10px;">ACTION</td>
-                </tr>
-                </thead>
-
-                <tr ng-repeat="log in data |filter: selectedType track by $index">
-                    <td style="border-right: 1px solid #ddd;">@{{ log.id }}</td>
-                    <td>
-                        @{{ log.log_date }} - @{{log.dateHumanize}}
-                    </td>
-                    <td>
-                        <span ng-if="['delete','lockout'].includes(log.log_type)" class="badge emergency">@{{log.log_type}}</span>
-                        <span ng-if="log.log_type=='edit'" class="badge warning edit_badge">@{{log.log_type}}</span>
-                        <span ng-show="['edit','delete'].includes(log.log_type)" class="from_table">
-                            from @{{ log.table_name }}</span>
-                        <span ng-if="log.log_type=='login'" class="badge debug">@{{log.log_type}}</span>
-                    </td>
-
-                    <td>
-                        <strong>@{{ log.user.name }}</strong><br>
-                        <span class="text_light">@{{ log.user.email }}</span>
-                    </td>
-                    <td class="action_column text_right">
-                        <button class="btn_show" ng-click="showPopup(log)">SHOW</button>
-                    </td>
-                </tr>
-            </table>
-
-            <div class="pagination_wrapper">
-                <div paging
-                     page="response.current_page"
-                     page-size="response.per_page"
-                     total="response.total"
-                     paging-action="init(page)"
-                     scroll-top="true"
-                     hide-if-empty="true"
-                     show-prev-next="true"
-                     show-first-last="true">
+                    </button>
                 </div>
             </div>
-
         </div>
-    </div>
-    <footer>
-        <div></div>
-        <div class="footer_right">
-          <span class="text_light">Delete data older than {{ config('user-activity.delete_limit') }} days</span>
-            <button class="btn" ng-click="deleteLog()">DELETE</button>
-        </div>
-    </footer>
 
-    <div class="popup_wrapper" ng-show="popup">
-        <div class="popup" style="width: 60%">
-            <div class="header">
-                <div class="title">Log Preview</div>
-                <div class="close" ng-click="popup=false">x</div>
-            </div>
-            <div class="popup_content">
-                <table style="width: 96%;">
+        <div class="log_data_wrapper">
+            <div class="responsive_table">
+                <table>
                     <thead>
-                    <tr>
-                        <td colspan="2">INFO</td>
-                    </tr>
+                        <tr>
+                            <td width="30">ID</td>
+                            <td width="260">DATE</td>
+                            <td width="170">LOG TYPE</td>
+                            <td>DONE BY</td>
+                            <td class="text_right" style="padding-right: 10px;">ACTION</td>
+                        </tr>
                     </thead>
-                    <tr>
-                        <td class="field_cell">Type</td>
-                        <td>
-                            <span ng-if="['delete','lockout'].includes(selected.log_type)"
-                                  class="badge emergency">@{{selected.log_type}}</span>
-                            <span ng-if="selected.log_type=='edit'" class="badge warning edit_badge">@{{selected.log_type}}</span>
 
-                            <span ng-if="selected.log_type=='login'" class="badge debug">@{{selected.log_type}}</span>
+                    <tr ng-repeat="log in data |filter: selectedType track by $index">
+                        <td style="border-right: 1px solid #ddd;">@{{ log.id }}</td>
+                        <td>
+                            @{{ log.log_date }} - @{{log.dateHumanize}}
                         </td>
-                    </tr>
-                    <tr ng-show="['edit','delete'].includes(selected.log_type)">
-                        <td class="field_cell">Table</td>
-                        <td>@{{ selected.table_name }}</td>
-                    </tr>
-                    <tr>
-                        <td class="field_cell">Time</td>
-                        <td>@{{ selected.dateHumanize }} - @{{ selected.log_date }}</td>
-                    </tr>
-                    <tr>
-                        <td class="field_cell">Done by</td>
-                        <td>@{{ selected.user.name }} - <span class="text_light">@{{ selected.user.email }}</span></td>
+                        <td>
+                            <span ng-if="['delete','lockout'].includes(log.log_type)"
+                                class="badge emergency">@{{log.log_type}}</span>
+                            <span ng-if="log.log_type=='edit'" class="badge warning edit_badge">@{{log.log_type}}</span>
+                            <span ng-if="log.log_type=='create'"
+                                class="badge primary     create_badge">@{{log.log_type}}</span>
+                            <span ng-show="['create','edit','delete'].includes(log.log_type)" class="from_table">
+                                from @{{ log.table_name }}</span>
+                            <span ng-if="log.log_type=='login'" class="badge debug">@{{log.log_type}}</span>
+                        </td>
+
+                        <td>
+                            <strong>@{{ log.user.name }}</strong><br>
+                            <span class="text_light">@{{ log.user.email }}</span>
+                        </td>
+                        <td class="action_column text_right">
+                            <button class="btn_show" ng-click="showPopup(log)">SHOW</button>
+                        </td>
                     </tr>
                 </table>
 
-
-                <br>
-
-                <div class="responsive_table">
-                    <table style="width: 96%;">
-                        <thead>
-                        <tr>
-                            <td>@{{ ['edit','delete'].includes(selected.log_type)?'FIELD':'' }}</td>
-                            <td>@{{ selected.log_type==='edit'?'PREVIOUS':'DATA' }}</td>
-                            <td ng-show="selected.log_type==='edit'">CURRENT</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <tr ng-repeat="(field,value) in selected.json_data">
-                            <td class="field_cell">@{{ field }}</td>
-                            <td>@{{ value }}</td>
-                            <td ng-show="selected.log_type==='edit'" ng-class="value!=currentData[field]?'changed':''">
-                                @{{ currentData[field] }}
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <br>
-                <div class="responsive_table" ng-if="selected.log_type==='edit' && editHistory.length > 0">
-                    <p style="color: #666;;">Another <strong>@{{ editHistory.length }}</strong> edit history found!</p>
-                    <table style="width: 96%;">
-                        <thead>
-                        <tr>
-                            <td>Time</td>
-                            <td>Edit By</td>
-                            <td>Data</td>
-                        </tr>
-                        </thead>
-                        <tbody>
-
-                        <tr ng-repeat="h in editHistory">
-                            <td>@{{ h.dateHumanize }}</td>
-                            <td>@{{ h.user.name }}</td>
-                            <td style="overflow: hidden">@{{ h.data }}</td>
-                        </tr>
-                        </tbody>
-                    </table>
+                <div class="pagination_wrapper">
+                    <div paging page="response.current_page" page-size="response.per_page" total="response.total"
+                        paging-action="init(page)" scroll-top="true" hide-if-empty="true" show-prev-next="true"
+                        show-first-last="true">
+                    </div>
                 </div>
 
             </div>
-            <div class="footer">
-                <div>
+        </div>
+        <footer>
+            <div></div>
+            <div class="footer_right">
+                <span class="text_light">Delete data older than {{ config('user-activity.delete_limit') }} days</span>
+                <button class="btn" ng-click="deleteLog()">DELETE</button>
+            </div>
+        </footer>
+
+        <div class="popup_wrapper" ng-show="popup">
+            <div class="popup" style="width: 60%">
+                <div class="header">
+                    <div class="title">Log Preview</div>
+                    <div class="close" ng-click="popup=false">x</div>
+                </div>
+                <div class="popup_content">
+                    <table style="width: 96%;">
+                        <thead>
+                            <tr>
+                                <td colspan="2">INFO</td>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td class="field_cell">Type</td>
+                            <td>
+                                <span ng-if="['delete','lockout'].includes(selected.log_type)"
+                                    class="badge emergency">@{{selected.log_type}}</span>
+                                <span ng-if="selected.log_type=='edit'"
+                                    class="badge warning edit_badge">@{{selected.log_type}}</span>
+                                <span ng-if="selected.log_type=='create'"
+                                    class="badge primary create_badge">@{{selected.log_type}}</span>
+
+                                <span ng-if="selected.log_type=='login'"
+                                    class="badge debug">@{{selected.log_type}}</span>
+                            </td>
+                        </tr>
+                        <tr ng-show="['create','edit','delete'].includes(selected.log_type)">
+                            <td class="field_cell">Table</td>
+                            <td>@{{ selected.table_name }}</td>
+                        </tr>
+                        <tr>
+                            <td class="field_cell">Time</td>
+                            <td>@{{ selected.dateHumanize }} - @{{ selected.log_date }}</td>
+                        </tr>
+                        <tr>
+                            <td class="field_cell">Done by</td>
+                            <td>@{{ selected.user.name }} - <span class="text_light">@{{ selected.user.email }}</span>
+                            </td>
+                        </tr>
+                    </table>
+
+
+                    <br>
+
+                    <div class="responsive_table">
+                        <table style="width: 96%;">
+                            <thead>
+                                <tr>
+                                    <td>@{{ ['create','edit','delete'].includes(selected.log_type)?'FIELD':'' }}</td>
+                                    <td>@{{ selected.log_type==='edit'?'PREVIOUS':'DATA' }}</td>
+                                    <td ng-show="selected.log_type==='edit'">CURRENT</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr ng-repeat="(field,value) in selected.json_data">
+                                    <td class="field_cell">@{{ field }}</td>
+                                    <td>@{{ value }}</td>
+                                    <td ng-show="selected.log_type==='edit'"
+                                        ng-class="value!=currentData[field]?'changed':''">
+                                        @{{ currentData[field] }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <br>
+                    <div class="responsive_table" ng-if="selected.log_type==='edit' && editHistory.length > 0">
+                        <p style="color: #666;;">Another <strong>@{{ editHistory.length }}</strong> edit history found!
+                        </p>
+                        <table style="width: 96%;">
+                            <thead>
+                                <tr>
+                                    <td>Time</td>
+                                    <td>Edit By</td>
+                                    <td>Data</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr ng-repeat="h in editHistory">
+                                    <td>@{{ h.dateHumanize }}</td>
+                                    <td>@{{ h.user.name }}</td>
+                                    <td style="overflow: hidden">@{{ h.data }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                 </div>
-                <div>
+                <div class="footer">
+                    <div>
 
+                    </div>
+                    <div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    @include('LaravelUserActivity::partials.script')
-</section>
+        @include('LaravelUserActivity::partials.script')
+    </section>
 
 </body>
+
 </html>
