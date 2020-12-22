@@ -6,6 +6,10 @@ return [
     'admin_panel_path' => 'admin/dashboard',
     'delete_limit'     => 7,
 
+    'model' => [
+        'user' => "App\User"
+    ],
+
     'log_events' => [
         'on_edit'    => true,
         'on_delete'  => true,
