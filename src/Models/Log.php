@@ -8,6 +8,13 @@ class Log extends Model
     public $dates = ['log_date'];
     protected $appends = ['dateHumanize','json_data'];
 
+    private $userInstance = "\App\User";
+
+    public function __construct() {
+        $userInstance = config('user-activity.model.user');
+        if(!empty($userInstance)) $this->userInstance = $userInstance;
+    }
+
     public function getDateHumanizeAttribute()
     {
         return $this->log_date->diffForHumans();
@@ -20,10 +27,6 @@ class Log extends Model
 
     public function user()
     {
-        if(class_exists('\App\Models\User')) {
-            return $this->belongsTo(\App\Models\User::class);
-        }
-
-        return $this->belongsTo(\App\User::class);
+        return $this->belongsTo($this->userInstance);
     }
 }
