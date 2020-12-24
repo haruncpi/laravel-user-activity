@@ -11,7 +11,8 @@ trait Loggable
     static function logToDb($model, $logType)
     {
         if (!auth()->check()) return;
-        $originalData = json_encode($model->getOriginal());
+        if ($logType == 'create') $originalData = json_encode($model);
+        else $originalData = json_encode($model->getOriginal());
 
         $tableName = $model->getTable();
         $dateTime = date('Y-m-d H:i:s');
@@ -38,6 +39,13 @@ trait Loggable
         if (config('user-activity.log_events.on_delete', false)) {
             self::deleted(function ($model) {
                 self::logToDb($model, 'delete');
+            });
+        }
+
+
+        if (config('user-activity.log_events.on_create', false)) {
+            self::created(function ($model) {
+                self::logToDb($model, 'create');
             });
         }
     }
