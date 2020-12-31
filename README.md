@@ -18,3 +18,10 @@ Checkout features & full documentation of [Laravel User Activity](https://larave
 - [Laravel ID generator](https://github.com/haruncpi/laravel-id-generator) - A laravel package for custom database ID generation.
 - [Laravel Simple Filemanager](https://github.com/haruncpi/laravel-simple-filemanager) - A simple filemanager for Laravel.
 - [Laravel Option Framework](https://github.com/haruncpi/laravel-option-framework) - Option framework for Laravel.
+
+### Change Log
+
+v1.0.2
+- Create log type added
+- User model configuration
+- UI ajax loading indicator

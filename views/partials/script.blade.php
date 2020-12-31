@@ -26,6 +26,7 @@
         $scope.selected = {};
         $scope.popup = false;
         $scope.activeFilter = false;
+        $scope.isLoading = false;
 
         $scope.filter = {
             user_id: null,
@@ -99,9 +100,11 @@
                 console.log(url)
             }
 
+            $scope.isLoading = true;
             $http.get(url).success(function (data) {
                 $scope.response = data;
                 $scope.data = data.data;
+                $scope.isLoading = false;
             })
         };
 
