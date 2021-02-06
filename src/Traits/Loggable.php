@@ -10,7 +10,7 @@ trait Loggable
 
     static function logToDb($model, $logType)
     {
-        if (!auth()->check() || $model->excludedModelLogging) return;
+        if (!auth()->check() || $model->excludedModelLogging || !config('user-activity.activated')) return;
         if ($logType == 'create') $originalData = json_encode($model);
         else $originalData = json_encode($model->getOriginal());
 
