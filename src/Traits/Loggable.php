@@ -12,7 +12,7 @@ trait Loggable
     {
         if (!auth()->check()) return;
         if ($logType == 'create') $originalData = json_encode($model);
-        else $originalData = json_encode($model->getOriginal());
+        else $originalData = json_encode($model->getRawOriginal());
 
         $tableName = $model->getTable();
         $dateTime = date('Y-m-d H:i:s');
