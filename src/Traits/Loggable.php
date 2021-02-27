@@ -12,7 +12,12 @@ trait Loggable
     {
         if (!auth()->check()) return;
         if ($logType == 'create') $originalData = json_encode($model);
-        else $originalData = json_encode($model->getRawOriginal());
+        else {
+            if (version_compare(app()->version(), '7.0.0', '>='))
+                $originalData = json_encode($model->getRawOriginal()); // getRawOriginal available from Laravel 7.x
+            else
+                $originalData = json_encode($model->getOriginal());
+        }
 
         $tableName = $model->getTable();
         $dateTime = date('Y-m-d H:i:s');

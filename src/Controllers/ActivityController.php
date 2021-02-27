@@ -111,10 +111,10 @@ class ActivityController extends Controller
                     "SELECT table_name FROM information_schema.tables where table_schema = '%s' ORDER BY table_schema,table_name;",
                     DB::connection($connection)->getConfig('schema') ?: 'public'
                 );
-                $all = array_map('reset', DB::select($sql));
+                $all = array_map('current', DB::select($sql));
                 break;
             default:
-                $all = array_map('reset', DB::select('SHOW TABLES'));
+                $all = array_map('current', DB::select('SHOW TABLES'));
         }
         $exclude = ['failed_jobs', 'password_resets', 'migrations', 'logs'];
         $tables = array_diff($all, $exclude);
