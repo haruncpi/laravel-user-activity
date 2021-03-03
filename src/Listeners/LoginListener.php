@@ -15,7 +15,8 @@ class LoginListener
 
     public function handle(Login $event)
     {
-        if (!config('user-activity.log_events.on_login', false)) return;
+        if (!config('user-activity.log_events.on_login', false)
+            || !config('user-activity.activated', true)) return;
 
         $user = $event->user;
         $dateTime = date('Y-m-d H:i:s');

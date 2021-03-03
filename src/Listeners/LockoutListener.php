@@ -22,7 +22,8 @@ class LockoutListener
 
     public function handle($event)
     {
-        if (!config('user-activity.log_events.on_lockout', false)) return;
+        if (!config('user-activity.log_events.on_lockout', false)
+            || !config('user-activity.activated', true)) return;
 
         if (!$event->request->has('email')) return;
         $user = $this->userInstance::where('email', $event->request->input('email'))->first();

@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'activated' => true,
     'middleware'       => ['web', 'auth'],
     'route_path'       => 'admin/user-activity',
     'admin_panel_path' => 'admin/dashboard',
