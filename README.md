@@ -21,6 +21,13 @@ Checkout features & full documentation of [Laravel User Activity](https://larave
 
 ### Change Log
 
+v1.0.4
+- Completely enable or disable logging by `activated` config value
+- Added Base model logging compatibility
+
+v1.0.3
+- Minor improvements
+
 v1.0.2
 - Create log type added
 - User model configuration
