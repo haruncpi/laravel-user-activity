@@ -3,7 +3,6 @@
 namespace Haruncpi\LaravelUserActivity\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\User;
 use Haruncpi\LaravelUserActivity\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -12,9 +11,10 @@ class ActivityController extends Controller
 {
     private $userInstance = "\App\User";
 
-    public function __construct() {
+    public function __construct()
+    {
         $userInstance = config('user-activity.model.user');
-        if(!empty($userInstance)) $this->userInstance = $userInstance;
+        if (!empty($userInstance)) $this->userInstance = $userInstance;
     }
 
     private function handleData(Request $request)
@@ -116,12 +116,10 @@ class ActivityController extends Controller
             default:
                 $all = array_map('current', DB::select('SHOW TABLES'));
         }
-        $exclude = ['failed_jobs', 'password_resets', 'migrations', 'logs'];
+        $exclude = ['failed_jobs', 'password_resets', 'migrations', config('user-activity.log_table', 'logs')];
         $tables = array_diff($all, $exclude);
 
         return view('LaravelUserActivity::index', ['tables' => $tables]);
-
-
     }
 
     public function handlePostRequest(Request $request)

@@ -6,8 +6,6 @@ use Illuminate\Support\Facades\DB;
 
 trait Loggable
 {
-    static protected $logTable = 'logs';
-
     static function logToDb($model, $logType)
     {
         if (!auth()->check() || $model->excludeLogging || !config('user-activity.activated', true)) return;
@@ -23,7 +21,7 @@ trait Loggable
         $dateTime = date('Y-m-d H:i:s');
         $userId = auth()->user()->id;
 
-        DB::table(self::$logTable)->insert([
+        DB::table(config('user-activity.log_table', 'logs'))->insert([
             'user_id'    => $userId,
             'log_date'   => $dateTime,
             'table_name' => $tableName,

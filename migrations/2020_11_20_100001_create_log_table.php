@@ -13,12 +13,12 @@ class CreateLogTable extends Migration
      */
     public function up()
     {
-        Schema::create('logs', function (Blueprint $table) {
+        Schema::create(config('user-activity.log_table', 'logs'), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
             $table->dateTime('log_date');
-            $table->string('table_name',50)->nullable();
-            $table->string('log_type',50);
+            $table->string('table_name', 50)->nullable();
+            $table->string('log_type', 50);
             $table->longText('data');
         });
     }
@@ -30,6 +30,6 @@ class CreateLogTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logs');
+        Schema::dropIfExists(config('user-activity.log_table', 'logs'));
     }
 }

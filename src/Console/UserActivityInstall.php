@@ -70,12 +70,12 @@ class UserActivityInstall extends Command
         }
 
         $this->line('-----------------------------');
-        if (!Schema::hasTable('logs')) {
+        $logsTable = config('user-activity.log_table', 'logs');
+        if (!Schema::hasTable($logsTable)) {
             $this->call('migrate');
         } else {
-            $this->error('logs table already exist in your database. migration not run successfully');
+            $this->error("$logsTable table already exist in your database. migration not run successfully");
         }
-
     }
 
     private function publishConfig()
@@ -95,5 +95,4 @@ class UserActivityInstall extends Command
             '--force'    => true
         ]);
     }
-
 }
