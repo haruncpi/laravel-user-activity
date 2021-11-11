@@ -12,9 +12,10 @@ class ActivityController extends Controller
 {
     private $userInstance = "\App\User";
 
-    public function __construct() {
+    public function __construct()
+    {
         $userInstance = config('user-activity.model.user');
-        if(!empty($userInstance)) $this->userInstance = $userInstance;
+        if (!empty($userInstance)) $this->userInstance = $userInstance;
     }
 
     private function handleData(Request $request)
@@ -113,14 +114,18 @@ class ActivityController extends Controller
                 );
                 $all = array_map('current', DB::select($sql));
                 break;
+            case 'sqlite':
+                $sql = "SELECT name as table_name FROM sqlite_master WHERE type='table' ORDER BY name";
+                $all = array_map('current', DB::select($sql));
+                break;
             default:
                 $all = array_map('current', DB::select('SHOW TABLES'));
         }
+
         $exclude = ['failed_jobs', 'password_resets', 'migrations', 'logs'];
         $tables = array_diff($all, $exclude);
 
         return view('LaravelUserActivity::index', ['tables' => $tables]);
-
 
     }
 
