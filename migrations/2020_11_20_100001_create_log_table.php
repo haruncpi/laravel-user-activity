@@ -20,6 +20,7 @@ class CreateLogTable extends Migration
             $table->string('table_name',50)->nullable();
             $table->string('log_type',50);
             $table->longText('data');
+            $table->string('user_type')->nullable();
         });
     }
 

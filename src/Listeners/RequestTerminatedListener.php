@@ -35,11 +35,30 @@ class RequestTerminatedListener
         $payload = $this->cleanPayload($payload);
 
         $table = (new Log())->getTable();
+
+        $userUpdate = $this->getUserUpdateStatement($table);
+
         $statement = "UPDATE $table 
             SET {$table}.request_duration = $duration,
                 {$table}.payload_base64 = '$payload'
+                $userUpdate
             WHERE {$table}.request_id = '$requestId'";
 
         DB::statement($statement);
+    }
+
+    private function getUserUpdateStatement(string $table)
+    {
+        $userUpdate = '';
+        $user = auth()->user();
+        if ($user) {
+            $userId = $user->id;
+            $userType = addslashes(get_class($user));
+
+            $userUpdate = ",{$table}.user_id = $userId,
+                {$table}.user_type = '$userType'";
+        }
+
+        return $userUpdate;
     }
 }

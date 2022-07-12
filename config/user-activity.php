@@ -7,10 +7,6 @@ return [
     'admin_panel_path' => 'admin/dashboard',
     'delete_limit'     => 7, // default 7 days
 
-    'model' => [
-        'user' => "App\Model\User"
-    ],
-
     'log_events' => [
         'on_create'     => false,
         'on_edit'       => true,

@@ -27,6 +27,6 @@ class Log extends Model
 
     public function user()
     {
-        return $this->belongsTo($this->userInstance);
+        return $this->morphTo(__FUNCTION__, 'user_type', 'user_id');
     }
 }
