@@ -21,6 +21,18 @@ Checkout features & full documentation of [Laravel User Activity](https://larave
 
 ### Change Log
 
+Response tracking
+- add to http\kernel 
+```use Haruncpi\LaravelUserActivity\Middleware\AddTracking;```
+
+Add the add tracking middleware to the beginning of your request
+```
+    protected $middleware = [
+        AddTracking::class,
+        ...
+```
+
+
 v1.0.4
 - Completely enable or disable logging by `activated` config value
 - Added Base model logging compatibility

@@ -449,7 +449,7 @@
                 <label>LOG TYPE</label>
 
                 <select ng-model="filter.log_type">
-                    @foreach(['create','edit','delete','login','lockout'] as $type)
+                    @foreach(['create','edit','delete','login','lockout', 'route'] as $type)
                         <option value="{{ $type}}">{{ $type}}</option>
                     @endforeach
                 </select>

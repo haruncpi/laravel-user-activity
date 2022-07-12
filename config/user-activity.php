@@ -8,7 +8,7 @@ return [
     'delete_limit'     => 7, // default 7 days
 
     'model' => [
-        'user' => "App\User"
+        'user' => "App\Model\User"
     ],
 
     'log_events' => [
@@ -16,6 +16,20 @@ return [
         'on_edit'       => true,
         'on_delete'     => true,
         'on_login'      => true,
-        'on_lockout'    => true
+        'on_lockout'    => true,
+        'on_route'      => true,
+    ],
+
+    'ignore_routes' => [
+        '*debugbar*'
+    ],
+
+    'ignore_urls' => [
+        '*user-activity*'
+    ],
+
+    'log_response' => [
+        'enabled' => true,
+        'max_characters' => 200,
     ]
 ];
