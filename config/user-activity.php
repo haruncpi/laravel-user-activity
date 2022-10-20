@@ -8,7 +8,7 @@ return [
     'delete_limit'     => 7, // default 7 days
 
     'model' => [
-        'user' => "App\User"
+        'user' => "App\Models\User" // Change to App\User for Laravel 7 or older
     ],
 
     'log_events' => [
