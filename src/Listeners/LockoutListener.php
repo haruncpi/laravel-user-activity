@@ -2,14 +2,14 @@
 
 namespace Haruncpi\LaravelUserActivity\Listeners;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class LockoutListener
 {
 
-    private $userInstance = "\App\User";
+    private $userInstance = "\App\Models\User";
 
     public function __construct(Request $request)
     {

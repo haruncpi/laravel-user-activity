@@ -8,7 +8,7 @@ class Log extends Model
     public $dates = ['log_date'];
     protected $appends = ['dateHumanize','json_data'];
 
-    private $userInstance = "\App\User";
+    private $userInstance = "\App\Models\User";
 
     public function __construct() {
         $userInstance = config('user-activity.model.user');
