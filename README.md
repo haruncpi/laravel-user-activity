@@ -40,6 +40,8 @@ v1.0.2
 
 LockoutListener, LoginListener -> add public ?Request $request = null
 - \App\User -> \App\Models\User
+- current(): Calling current() on an object is deprecated
+
 
 ----
 - Composer has been added to use this package in Laravel 10 project.

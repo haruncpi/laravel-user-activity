@@ -119,7 +119,9 @@ class ActivityController extends Controller
                 $all = array_map('current', DB::select($sql));
                 break;
             default:
-                $all = array_map('current', DB::select('SHOW TABLES'));
+                $all = array_map(function ($value) {
+                    return array_values((array) $value)[0] ?? '';
+                }, DB::select('SHOW TABLES'));
         }
 
         $exclude = ['failed_jobs', 'password_resets', 'migrations', 'logs'];
