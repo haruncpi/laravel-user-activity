@@ -6,13 +6,28 @@ use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+/**
+ *
+ */
 class LoginListener
 {
+    /**
+     * @var Request|null
+     */
+    public ?Request $request = null;
+
+    /**
+     * @param Request $request
+     */
     public function __construct(Request $request)
     {
         $this->request = $request;
     }
 
+    /**
+     * @param Login $event
+     * @return void
+     */
     public function handle(Login $event)
     {
         if (!config('user-activity.log_events.on_login', false)

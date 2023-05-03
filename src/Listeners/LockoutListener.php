@@ -8,9 +8,18 @@ use Illuminate\Support\Facades\DB;
 
 class LockoutListener
 {
+    /**
+     * @var Request|null
+     */
+    public ?Request $request = null;
+    /**
+     * @var string
+     */
+    private string $userInstance = "\App\Models\User";
 
-    private $userInstance = "\App\User";
-
+    /**
+     * @param Request $request
+     */
     public function __construct(Request $request)
     {
         $this->request = $request;
@@ -20,6 +29,10 @@ class LockoutListener
     }
 
 
+    /**
+     * @param $event
+     * @return void
+     */
     public function handle($event)
     {
         if (!config('user-activity.log_events.on_lockout', false)

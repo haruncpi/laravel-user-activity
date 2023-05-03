@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 class ActivityController extends Controller
 {
-    private $userInstance = "\App\User";
+    private $userInstance = "\App\Models\User";
 
     public function __construct()
     {
@@ -133,12 +133,10 @@ class ActivityController extends Controller
     {
         if ($request->has('action')) {
             $action = $request->get('action');
-            switch ($action) {
-                case 'delete':
-                    $dayLimit = config('user-activity.delete_limit');
-                    Log::whereRaw('log_date < NOW() - INTERVAL ? DAY', [$dayLimit])->delete();
-                    return ['success' => true, 'message' => "Successfully deleted log data older than $dayLimit days"];
-                    break;
+            if ($action == 'delete') {
+                $dayLimit = config('user-activity.delete_limit');
+                Log::whereRaw('log_date < NOW() - INTERVAL ? DAY', [$dayLimit])->delete();
+                return ['success' => true, 'message' => "Successfully deleted log data older than $dayLimit days"];
             }
         }
     }

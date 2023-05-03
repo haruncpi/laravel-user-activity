@@ -32,3 +32,11 @@ v1.0.2
 - Create log type added
 - User model configuration
 - UI ajax loading indicator
+
+----
+### Add Support For Laravel 10 and PHP >=8.0
+- Creation of dynamic property Haruncpi\LaravelUserActivity\Listeners\LoginListener::$request is deprecated
+- Creation of dynamic property Haruncpi\LaravelUserActivity\Listeners\LockoutListener::$request is deprecated
+
+LockoutListener, LoginListener -> add public ?Request $request = null
+- \App\User -> \App\Models\User
