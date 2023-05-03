@@ -1,17 +1,22 @@
 {
-  "name": "haruncpi/laravel-user-activity",
+  "name": "mchtylmz/haruncpi-laravel-user-activity-laravel10",
   "description": "Monitor user activity easily!",
   "license": "cc-by-4.0",
   "keywords": [
     "laravel",
     "user",
-    "activity"
+    "activity",
+    "haruncpi"
   ],
   "type": "library",
   "authors": [
     {
       "name": "MD.HARUN-UR-RASHID",
       "email": "harun.cox@gmail.com"
+    },
+    {
+      "name": "mchtylmz",
+      "email": "mucahityilmaz.mail@gmail.com"
     }
   ],
   "minimum-stability": "dev",

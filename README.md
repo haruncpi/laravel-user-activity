@@ -40,3 +40,9 @@ v1.0.2
 
 LockoutListener, LoginListener -> add public ?Request $request = null
 - \App\User -> \App\Models\User
+
+----
+- Composer has been added to use this package in Laravel 10 project.
+- The original package's github page can be accessed at the [link here](https://github.com/haruncpi/laravel-user-activity).
+- Changes made in this package can be seen in the [commit link here](https://github.com/mchtylmz/laravel-user-activity-laravel10/commit/bfd328806002fc5bcfcdcbd590da8e7d4a5e5355).
+- This package was first published by [haruncpi](https://github.com/haruncpi).
