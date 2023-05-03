@@ -15,7 +15,7 @@
       "email": "harun.cox@gmail.com"
     }
   ],
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
   "prefer-stable": true,
   "require": {
     "php": ">=8.0"

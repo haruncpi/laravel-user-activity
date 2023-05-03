@@ -46,6 +46,7 @@ LockoutListener, LoginListener -> add public ?Request $request = null
 - The original package's github page can be accessed at the [link here](https://github.com/haruncpi/laravel-user-activity).
 - Changes made in this package can be seen in the [commit link here](https://github.com/mchtylmz/laravel-user-activity-laravel10/commit/bfd328806002fc5bcfcdcbd590da8e7d4a5e5355).
 - This package was first published by [haruncpi](https://github.com/haruncpi).
+- Wait pull request [Link Here](https://github.com/haruncpi/laravel-user-activity/pull/45)
 
 
 ```bash
