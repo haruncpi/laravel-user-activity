@@ -13,13 +13,9 @@
     {
       "name": "MD.HARUN-UR-RASHID",
       "email": "harun.cox@gmail.com"
-    },
-    {
-      "name": "mchtylmz",
-      "email": "mucahityilmaz.mail@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "prefer-stable": true,
   "require": {
     "php": ">=8.0"
