@@ -5,7 +5,9 @@ use Illuminate\Database\Eloquent\Model;
 class Log extends Model
 {
     public $timestamps = false;
-    public $dates = ['log_date'];
+     public $casts = [
+        'log_date' => 'datetime'
+    ];
     protected $appends = ['dateHumanize','json_data'];
 
     private $userInstance = "\App\User";
