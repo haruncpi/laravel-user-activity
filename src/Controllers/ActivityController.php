@@ -52,7 +52,7 @@ class ActivityController extends Controller
     {
         $this->validate($request, [
             'table'  => 'required|string',
-            'id'     => 'required|numeric',
+            'id'     => 'required',
             'log_id' => 'required|numeric'
         ]);
 
