@@ -21,7 +21,7 @@ Checkout features & full documentation of [Laravel User Activity](https://larave
 
 ### Change Log
 
-v1.0.5
+v1.0.6
 - Default user model `App\Models\User` to support laravel >=8
 - Carbon date parse instead of $dates cast.
 
