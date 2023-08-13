@@ -1,14 +1,14 @@
 <?php namespace Haruncpi\LaravelUserActivity\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Log extends Model
 {
     public $timestamps = false;
-    public $dates = ['log_date'];
     protected $appends = ['dateHumanize','json_data'];
 
-    private $userInstance = "\App\User";
+    private $userInstance = "\App\Models\User";
 
     public function __construct() {
         $userInstance = config('user-activity.model.user');
@@ -17,7 +17,7 @@ class Log extends Model
 
     public function getDateHumanizeAttribute()
     {
-        return $this->log_date->diffForHumans();
+        return Carbon::parse($this->attributes['log_date'])->diffForHumans();
     }
 
     public function getJsonDataAttribute()
