@@ -3,7 +3,6 @@
 namespace Haruncpi\LaravelUserActivity\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
 use Haruncpi\LaravelUserActivity\Models\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
