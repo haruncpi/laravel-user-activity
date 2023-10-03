@@ -23,7 +23,7 @@ trait Loggable
         $dateTime = date('Y-m-d H:i:s');
         $userId = auth()->user()->id;
 
-        DB::table(self::$logTable)->insert([
+        DB::connection(config('user-activity.log_connection'))->table(self::$logTable)->insert([
             'user_id'    => $userId,
             'log_date'   => $dateTime,
             'table_name' => $tableName,
@@ -39,7 +39,6 @@ trait Loggable
                 self::logToDb($model, 'edit');
             });
         }
-
 
         if (config('user-activity.log_events.on_delete', false)) {
             self::deleted(function ($model) {
